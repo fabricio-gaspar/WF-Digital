@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ShieldCheck, Cloud, HardDrive, ArrowRight, Cpu, Code2, BarChart3, Database, Settings2,
-  Briefcase, MonitorSmartphone, Award, Users, Trophy, CheckCircle2, Calendar, MessageCircle, User,
+  Briefcase, Award, Users, Trophy, Calendar, MessageCircle, User,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
