@@ -1,0 +1,130 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteShell } from "@/components/site/SiteShell";
+import { InternalHero } from "@/components/site/InternalHero";
+import { LogoStrip } from "@/components/site/LogoStrip";
+import { Counters } from "@/components/site/Counters";
+import { DarkCTA, PurpleCTA } from "@/components/site/CTAs";
+import { Check, Star, Share2, ArrowRight } from "lucide-react";
+
+export const Route = createFileRoute("/about")({
+  head: () => ({ meta: [
+    { title: "About — Infetech IT Solutions" },
+    { name: "description", content: "Learn how Infetech partners with organizations to deliver world-class IT solutions, software and consulting." },
+  ]}),
+  component: AboutPage,
+});
+
+const team = [
+  { name: "Christine Eve", role: "Developer", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" },
+  { name: "Mike Hardson", role: "Developer", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
+  { name: "Jessica Brown", role: "Developer", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" },
+];
+
+function AboutPage() {
+  return (
+    <SiteShell>
+      <InternalHero title="About" />
+
+      <section className="section-y bg-white">
+        <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
+          <div className="relative reveal">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80" className="w-full h-[460px] object-cover" alt="" />
+            <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-white shadow-xl border-4 border-primary/20 grid place-items-center text-center">
+              <div className="w-20 h-20 rounded-full purple-gradient grid place-items-center text-white font-black text-2xl">S</div>
+            </div>
+            <div className="absolute -left-4 -top-4 w-24 h-full border-l-4 border-primary" />
+          </div>
+          <div className="reveal">
+            <div className="eyebrow mb-4">About Your Company</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">We're Partner of Your<br />Innovations</h2>
+            <p className="mt-5 text-muted-foreground">
+              Infetech is a provider of IT consulting and software development services. We help organizations and companies improve business performance by partnering with their teams from discovery to launch.
+            </p>
+            <div className="mt-7 grid sm:grid-cols-2 gap-3">
+              {["Best quality support", "Serve the best", "Money back guarantee", "Trusted Professionals"].map((b) => (
+                <div key={b} className="flex items-center gap-2 text-sm font-semibold">
+                  <span className="w-5 h-5 rounded-full bg-accent text-primary grid place-items-center"><Check className="w-3 h-3" /></span>
+                  {b}
+                </div>
+              ))}
+            </div>
+            <a href="/contact" className="btn-primary mt-8">Learn More <ArrowRight className="w-4 h-4" /></a>
+          </div>
+        </div>
+      </section>
+
+      <Counters />
+
+      {/* TESTIMONIAL */}
+      <section className="section-y bg-section">
+        <div className="container-x grid lg:grid-cols-2 gap-14 items-center">
+          <div className="reveal">
+            <div className="eyebrow mb-3">Client Testimonials</div>
+            <h2 className="text-4xl font-black leading-tight">Check What They're<br />Talking About</h2>
+            <div className="mt-8 flex items-center gap-4">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" className="w-16 h-16 rounded-full object-cover border-4 border-primary/30" alt="" />
+              <div>
+                <div className="font-bold">Mike Hardson</div>
+                <div className="text-xs text-muted-foreground">Senior Designer</div>
+                <div className="flex gap-0.5 mt-1 text-primary">{Array.from({length:5}).map((_,i)=><Star key={i} className="w-3.5 h-3.5 fill-current"/>)}</div>
+              </div>
+            </div>
+            <p className="mt-6 text-muted-foreground max-w-md leading-relaxed">
+              Infetech is a professional IT company that always creates quality software for clients. If you are looking for a team of talented developers to find out the best IT solutions, Infetech is a company that your team should consider.
+            </p>
+            <div className="flex gap-2 mt-6">
+              <span className="w-10 h-1 bg-primary rounded" />
+              <span className="w-6 h-1 bg-foreground/15 rounded" />
+              <span className="w-6 h-1 bg-foreground/15 rounded" />
+            </div>
+          </div>
+          <div className="relative h-[480px] reveal">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" className="absolute right-10 top-12 w-56 h-56 rounded-full object-cover border-4 border-white shadow-2xl" alt="" />
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" className="absolute left-4 top-0 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" className="absolute right-0 top-2 w-24 h-24 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&q=80" className="absolute left-0 bottom-8 w-28 h-28 rounded-full object-cover border-4 border-white shadow-xl" alt="" />
+            <div className="absolute right-8 bottom-4 w-3 h-3 bg-primary rotate-45" />
+            <div className="absolute left-32 top-32 w-2 h-2 bg-primary/50 rotate-45" />
+            <div className="absolute right-32 top-4 w-2 h-2 bg-primary/50 rotate-45" />
+          </div>
+        </div>
+      </section>
+
+      <DarkCTA />
+      <LogoStrip />
+
+      {/* TEAM */}
+      <section className="section-y bg-white">
+        <div className="container-x grid lg:grid-cols-2 gap-10 mb-12">
+          <div className="reveal">
+            <div className="eyebrow mb-3">Our Expert People</div>
+            <h2 className="text-4xl md:text-5xl font-black leading-tight">Meet Our Professional Team<br />Member</h2>
+          </div>
+          <p className="text-muted-foreground self-end reveal">
+            Meet talented, experienced and knowledgeable team members who make individuals and businesses closer with their portfolios. They often take the job seriously and carefully.
+          </p>
+        </div>
+        <div className="container-x grid md:grid-cols-3 gap-7">
+          {team.map((t) => (
+            <div key={t.name} className="group reveal">
+              <div className="relative overflow-hidden">
+                <img src={t.img} className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105" alt={t.name} />
+                <div className="absolute top-2 left-1/2 -translate-x-1/2 w-px h-6 bg-primary" />
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-primary rotate-45" />
+              </div>
+              <div className="flex items-start justify-between mt-4 px-1">
+                <div>
+                  <h4 className="font-bold">{t.name}</h4>
+                  <p className="text-xs text-muted-foreground">{t.role}</p>
+                </div>
+                <button className="w-9 h-9 grid place-items-center purple-gradient text-white rounded-sm hover:rotate-12 transition-transform"><Share2 className="w-4 h-4" /></button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <PurpleCTA />
+    </SiteShell>
+  );
+}
