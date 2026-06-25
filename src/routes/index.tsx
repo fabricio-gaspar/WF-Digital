@@ -1,10 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
-import { LogoStrip } from "@/components/site/LogoStrip";
-import { DarkCTA, PurpleCTA } from "@/components/site/CTAs";
 import {
-  ShieldCheck, Cloud, HardDrive, ArrowRight, Cpu, Code2, BarChart3, Database, Settings2, LineChart,
-  Gamepad2, Briefcase, MonitorSmartphone, Award, Users, Trophy, CheckCircle2, Play,
+  ShieldCheck, Cloud, HardDrive, ArrowRight, Cpu, Code2, BarChart3, Database, Settings2,
+  Briefcase, MonitorSmartphone, Award, Users, Trophy, CheckCircle2, Calendar, MessageCircle, User,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -17,36 +15,45 @@ export const Route = createFileRoute("/")({
 });
 
 const heroCards = [
-  { n: "01", t: "Backup and Recovery", d: "Reliable backup pipelines that keep your data safe.", icon: HardDrive },
-  { n: "02", t: "Internet & Cyber Security", d: "Layered defenses for modern threats and zero trust.", icon: ShieldCheck },
-  { n: "03", t: "Cloud Based Services", d: "Scalable cloud infrastructure tuned to your workloads.", icon: Cloud },
+  { n: "01", t: "Backup and Recovery", d: "This helps protect organizations against data loss", icon: HardDrive },
+  { n: "02", t: "Internet & Cyber Security", d: "Offer security tactics to protect users from threats", icon: ShieldCheck },
+  { n: "03", t: "Cloud Based Services", d: "Applications, servers, storage, and virtual desktops", icon: Cloud },
 ];
 
 const services = [
   { t: "Automated Software", d: "Streamline operations with intelligent automation engines.", icon: Cpu },
-  { t: "IT Consultancy", d: "Strategic IT roadmaps from senior technology partners.", icon: Briefcase },
-  { t: "Market Strategy", d: "Data-driven market plans that scale your business.", icon: BarChart3 },
   { t: "Data Structuring", d: "Organize complex datasets into actionable models.", icon: Database },
+  { t: "IT Consultancy", d: "Strategic IT roadmaps from senior technology partners.", icon: Briefcase },
   { t: "Managed IT Services", d: "End-to-end management of your IT infrastructure.", icon: Settings2 },
+  { t: "Market Strategy", d: "Data-driven market plans that scale your business.", icon: BarChart3 },
   { t: "Software Develop", d: "Custom software crafted to fit your operations.", icon: Code2 },
 ];
 
 const projects = [
-  { t: "Web Development", c: "Design / Ideas", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" },
   { t: "Virtual Reality", c: "Design / Ideas", img: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=900&q=80" },
-  { t: "Smart Marketing", c: "Design / Ideas", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80" },
+  { t: "Smart Marketing", c: "Ideas", img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80" },
+  { t: "Platform Integration", c: "Design", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=900&q=80" },
+  { t: "Tech Solutions", c: "Ideas", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" },
+  { t: "Smart Visions", c: "Design", img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=900&q=80" },
+  { t: "Web Development", c: "Design / Ideas", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&q=80" },
 ];
 
 const industries = [
-  { t: "Gaming and Entertainment", d: "Immersive platforms and live operations at scale.", icon: Gamepad2, img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&q=80" },
-  { t: "Business and Finance", d: "Secure financial systems and intelligent reporting.", icon: Briefcase, img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&q=80" },
-  { t: "Information Technology", d: "Cloud-native architectures and DevOps excellence.", icon: MonitorSmartphone, img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80" },
+  { letter: "G", t: "Gaming and Entertainment", d: "Immersive platforms, live operations and engaging entertainment experiences built to scale." },
+  { letter: "B", t: "Business and Finance", d: "Secure financial systems, intelligent reporting and modern enterprise platforms." },
+  { letter: "T", t: "Information Technology", d: "Cloud-native architectures, DevOps excellence and engineering for IT teams." },
+];
+
+const pillars = [
+  { i: Users, t: "Experienced", d: "Years of proven experience delivering enterprise IT projects." },
+  { i: Award, t: "Convenience", d: "We make working with technology partners simple and seamless." },
+  { i: Trophy, t: "Professional", d: "A dedicated team of senior professionals at your service." },
 ];
 
 const posts = [
-  { t: "The different types of data backups", c: "Data Analysis", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" },
-  { t: "A quick solutions for problem", c: "Consulting", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" },
-  { t: "What is Staff Augmentation?", c: "Technology", img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=800&q=80" },
+  { t: "The different types of data backups", d: "01", m: "MAR", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" },
+  { t: "A quick solutions for problem", d: "14", m: "MAR", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" },
+  { t: "What is Staff Augmentation?", d: "22", m: "MAR", img: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?w=800&q=80" },
 ];
 
 function HomePage() {
@@ -86,7 +93,6 @@ function HomePage() {
               alt="Tech professional"
               className="relative w-full h-[460px] lg:h-[560px] object-cover grayscale"
             />
-            {/* slider arrows */}
             <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 flex-col gap-3">
               <button aria-label="Previous slide" className="w-11 h-11 rounded-full border border-foreground/20 bg-white grid place-items-center text-foreground/70 hover:bg-primary hover:text-white hover:border-primary transition-colors">
                 <ArrowRight className="w-4 h-4 rotate-180" />
@@ -95,7 +101,6 @@ function HomePage() {
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-            {/* slider dots */}
             <div className="absolute -right-8 bottom-6 hidden lg:flex flex-col gap-2">
               {[0, 1, 2].map((i) => (
                 <span
@@ -124,85 +129,23 @@ function HomePage() {
         </div>
       </section>
 
-
-      {/* BEST TECH SOLUTIONS */}
-      <section className="section-y bg-white">
-        <div className="container-x grid lg:grid-cols-2 gap-16 items-center">
-          <div className="relative reveal">
-            <div className="absolute -left-6 top-6 w-64 h-64 border-[14px] border-primary rounded-full opacity-90" />
-            <div className="relative grid grid-cols-2 gap-4 pl-12 pt-12">
-              <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=600&q=80" className="rounded-sm h-56 w-full object-cover" alt="" />
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" className="rounded-sm h-40 w-full object-cover mt-12" alt="" />
-              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" className="rounded-sm h-40 w-full object-cover" alt="" />
-              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80" className="rounded-sm h-32 w-full object-cover" alt="" />
-            </div>
-          </div>
-          <div className="reveal">
-            <div className="eyebrow mb-4">Why Choose Us</div>
-            <h2 className="text-4xl md:text-5xl font-black leading-tight">The Best Tech Solutions for Our Clients</h2>
-            <p className="mt-5 text-muted-foreground">
-              Infetech is a provider of IT consulting and software development services. We help organizations and companies improve business performance by combining strategy, design and engineering.
-            </p>
-            <div className="mt-8 space-y-5">
-              {[
-                { t: "End to End Development", d: "From product discovery to production delivery, our teams own every layer of the stack." },
-                { t: "Software IT Outsourcing", d: "Senior engineers, fully integrated with your team, ready to ship at velocity." },
-              ].map((b) => (
-                <div key={b.t} className="flex gap-4">
-                  <div className="w-12 h-12 rounded-full grid place-items-center bg-accent text-primary shrink-0"><ShieldCheck className="w-5 h-5" /></div>
-                  <div>
-                    <h4 className="font-bold">{b.t}</h4>
-                    <p className="text-sm text-muted-foreground">{b.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <Link to="/services" className="btn-primary mt-8">Learn More <ArrowRight className="w-4 h-4" /></Link>
-          </div>
-        </div>
-      </section>
-
-      {/* DARK PROJECTS */}
-      <section className="circuit-bg py-24 text-white">
-        <div className="container-x text-center reveal">
-          <div className="eyebrow mb-3 !text-primary">Our Completed Projects</div>
-          <h2 className="text-3xl md:text-5xl font-black">Improve & Enhance Our<br />Tech Projects</h2>
-        </div>
-        <div className="container-x mt-14 grid md:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <div key={p.t} className="group relative overflow-hidden rounded-sm reveal">
-              <img src={p.img} className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110" alt={p.t} />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent" />
-              <div className="absolute left-5 right-5 bottom-5">
-                <div className="text-xs uppercase tracking-widest text-primary">{p.c}</div>
-                <h3 className="mt-1 text-xl font-bold">{p.t}</h3>
-              </div>
-              <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-primary grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity"><ArrowRight className="w-4 h-4 text-white" /></div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center gap-2 mt-10">
-          {[0,1,2,3].map((i) => <span key={i} className={`h-1 rounded ${i===0?'w-10 bg-primary':'w-6 bg-white/20'}`} />)}
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
+      {/* WHY CHOOSE OUR SERVICES */}
       <section className="section-y bg-white">
         <div className="container-x grid lg:grid-cols-2 gap-14 items-center">
           <div className="relative reveal">
-            <div className="absolute -left-12 -bottom-12 w-1/2 h-2/3 bg-primary" />
+            <div className="absolute -left-8 -bottom-8 w-2/3 h-2/3 bg-primary/10" />
             <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80" className="relative w-full h-[460px] object-cover" alt="" />
           </div>
           <div className="reveal">
-            <div className="eyebrow mb-4">What we offer</div>
+            <div className="eyebrow mb-4">Why Choose Us</div>
             <h2 className="text-4xl md:text-5xl font-black leading-tight">Why you Should choose<br />Our Services</h2>
             <p className="mt-5 text-muted-foreground max-w-lg">
-              Senior engineers, transparent process, and an obsession with shipping. We work as part of your team, not a vendor.
+              We provide custom software solutions for your business with the most reasonable price.
             </p>
             <div className="mt-8 space-y-6">
               {[
-                { t: "Cloud Based Services", d: "Resilient, scalable cloud architectures built on best practices." },
-                { t: "Expert Team Members", d: "Battle-tested experts across product, design and engineering." },
+                { t: "Cloud Based Services", d: "Resilient, scalable cloud architectures and infrastructure built on best practices." },
+                { t: "Expert Team Members", d: "A highly qualified, professional team across product, design and engineering." },
               ].map((b) => (
                 <div key={b.t} className="flex gap-4">
                   <div className="w-12 h-12 rounded-full grid place-items-center bg-primary text-white shrink-0"><CheckCircle2 className="w-5 h-5" /></div>
@@ -217,99 +160,143 @@ function HomePage() {
         </div>
       </section>
 
-      {/* SERVICES GRID */}
+      {/* SERVICES GRID 3x2 */}
       <section className="section-y bg-section">
-        <div className="container-x text-center reveal">
-          <div className="eyebrow mb-3">What we're offering</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight">Real Time Dealing in all Professional<br />IT Solutions & Services</h2>
+        <div className="container-x text-center reveal max-w-2xl mx-auto">
+          <div className="eyebrow mb-3 justify-center">What we're offering</div>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight">Our Professional IT Services</h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
-            <div key={s.t} className="card-soft p-7 flex items-start justify-between gap-4 reveal" style={{ transitionDelay: `${i*80}ms`}}>
+            <div key={s.t} className="card-soft p-7 flex items-start gap-5 reveal" style={{ transitionDelay: `${i*80}ms`}}>
+              <div className="w-14 h-14 rounded-sm grid place-items-center bg-accent text-primary shrink-0"><s.icon className="w-6 h-6" /></div>
               <div>
                 <h3 className="font-bold text-lg">{s.t}</h3>
                 <p className="text-sm text-muted-foreground mt-2">{s.d}</p>
               </div>
-              <div className="w-12 h-12 rounded-sm grid place-items-center bg-accent text-primary shrink-0"><s.icon className="w-5 h-5" /></div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* MINI CTA */}
-      <section className="bg-white">
-        <div className="container-x py-6">
-          <div className="purple-gradient rounded-sm px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-white">
-            <p className="text-sm font-semibold">We'll talk over your business and provide the best IT solutions.</p>
-            <a href="/contact" className="btn-light !py-2.5 !px-5">Learn More</a>
+      {/* INTERMEDIATE DARK CTA */}
+      <section className="circuit-bg text-white">
+        <div className="container-x py-14 flex flex-col md:flex-row items-center justify-between gap-6">
+          <h3 className="text-2xl md:text-3xl font-black">Need IT solutions &amp; services consultation?</h3>
+          <Link to="/contact" className="btn-primary">Send a free request now <ArrowRight className="w-4 h-4" /></Link>
+        </div>
+      </section>
+
+      {/* PROJECTS CAROUSEL */}
+      <section className="section-y bg-white">
+        <div className="container-x text-center reveal max-w-3xl mx-auto">
+          <div className="eyebrow mb-3 justify-center">Our Completed Projects</div>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight">Real Time Dealing in all Professional<br />IT Solutions &amp; Services</h2>
+        </div>
+        <div className="container-x mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((p) => (
+            <div key={p.t} className="group relative overflow-hidden reveal">
+              <img src={p.img} className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110" alt={p.t} />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent" />
+              <div className="absolute left-5 right-5 bottom-5">
+                <div className="text-[10px] uppercase tracking-widest text-primary font-bold">{p.c}</div>
+                <h3 className="mt-1 text-xl font-bold text-white">{p.t}</h3>
+              </div>
+              <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-primary grid place-items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-2 mt-10">
+          {[0,1,2,3,4,5].map((i) => (
+            <button key={i} aria-label={`Go to slide ${i+1}`} className={`h-2.5 rounded-full transition-all ${i===0?'w-8 bg-primary':'w-2.5 bg-foreground/20'}`} />
+          ))}
+        </div>
+      </section>
+
+      {/* BETTER IT SOLUTIONS BLOCK */}
+      <section className="bg-section">
+        <div className="container-x py-16 grid lg:grid-cols-2 gap-10 items-center">
+          <div className="reveal">
+            <div className="eyebrow mb-3">IT Solutions</div>
+            <h2 className="text-3xl md:text-5xl font-black leading-tight">Better IT Solutions &amp; Services at your Fingertips</h2>
+            <p className="mt-5 text-muted-foreground max-w-lg">
+              We deliver complete enterprise solutions — from infrastructure to applications — designed to power your business at every stage of growth.
+            </p>
+            <Link to="/services" className="btn-primary mt-7">Learn More <ArrowRight className="w-4 h-4" /></Link>
+          </div>
+          <div className="relative reveal">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80" className="w-full h-[380px] object-cover" alt="" />
           </div>
         </div>
       </section>
 
-      <DarkCTA />
-
-      {/* INDUSTRY CARDS */}
+      {/* INDUSTRIES — G / B / T */}
       <section className="section-y bg-white">
         <div className="container-x grid md:grid-cols-3 gap-6">
           {industries.map((i) => (
-            <div key={i.t} className="card-soft p-6 flex items-center gap-5 reveal">
-              <div className="relative shrink-0">
-                <img src={i.img} className="w-20 h-20 rounded-full object-cover" alt="" />
-                <div className="absolute -bottom-1 -right-1 w-9 h-9 rounded-full purple-gradient grid place-items-center text-white"><i.icon className="w-4 h-4" /></div>
-              </div>
-              <div>
-                <h4 className="font-bold">{i.t}</h4>
-                <p className="text-sm text-muted-foreground mt-1">{i.d}</p>
+            <div key={i.letter} className="group relative bg-white border border-border p-8 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] transition-all reveal">
+              <div className="w-20 h-20 purple-gradient text-white font-black text-5xl grid place-items-center mb-6 leading-none">{i.letter}</div>
+              <h3 className="text-xl font-bold">{i.t}</h3>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{i.d}</p>
+              <div className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-primary">
+                Read More <ArrowRight className="w-3 h-3" />
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* PURPLE TRUST STRIP */}
-      <section className="purple-gradient text-white">
-        <div className="container-x py-10 grid md:grid-cols-4 gap-8 items-center">
-          <div>
-            <div className="text-xs uppercase tracking-widest opacity-85">Why infetech</div>
-            <h3 className="text-2xl font-black mt-1">Trusted IT Solution &<br />Service Business Agency</h3>
-          </div>
-          {[
-            { i: Users, t: "Experienced Team" },
-            { i: Award, t: "Convenience and Trust" },
-            { i: Trophy, t: "Professional Team" },
-          ].map((b) => (
-            <div key={b.t} className="flex items-center gap-3 border-l border-white/20 pl-5">
-              <div className="w-12 h-12 rounded-full bg-white/10 grid place-items-center"><b.i className="w-5 h-5" /></div>
-              <div className="text-sm font-semibold leading-tight">{b.t}</div>
+      {/* TECHNOLOGY PATH */}
+      <section className="section-y bg-section">
+        <div className="container-x text-center reveal max-w-3xl mx-auto">
+          <div className="eyebrow mb-3 justify-center">Technology Path</div>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight">Trusted IT Solution &amp; Service Business Agency</h2>
+        </div>
+        <div className="container-x mt-12 grid md:grid-cols-3 gap-6">
+          {pillars.map((p) => (
+            <div key={p.t} className="card-soft p-8 text-center reveal">
+              <div className="w-16 h-16 mx-auto rounded-full purple-gradient text-white grid place-items-center mb-5">
+                <p.i className="w-7 h-7" />
+              </div>
+              <h3 className="text-lg font-bold">{p.t}</h3>
+              <p className="text-sm text-muted-foreground mt-3">{p.d}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* BLOG PREVIEW */}
+      {/* BLOG / NEWS */}
       <section className="section-y bg-white">
-        <div className="container-x text-center reveal">
-          <div className="eyebrow mb-3">What's new</div>
-          <h2 className="text-3xl md:text-5xl font-black">News & Articles</h2>
+        <div className="container-x text-center reveal max-w-2xl mx-auto">
+          <div className="eyebrow mb-3 justify-center">What's Happening</div>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight">News &amp; Articles</h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-7">
           {posts.map((p) => (
             <article key={p.t} className="card-soft overflow-hidden reveal">
               <div className="relative overflow-hidden">
-                <img src={p.img} className="w-full h-52 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
-                <div className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-primary text-white">News</div>
+                <img src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
+                <div className="absolute top-4 left-4 bg-primary text-white text-center px-3 py-2 leading-none">
+                  <div className="text-2xl font-black">{p.d}</div>
+                  <div className="text-[10px] font-bold tracking-widest mt-1">{p.m}</div>
+                </div>
               </div>
-              <div className="p-6">
-                <div className="text-xs text-muted-foreground">By Admin · {p.c}</div>
-                <h3 className="mt-2 font-bold text-lg leading-snug">{p.t}</h3>
-                <Link to="/blog" className="mt-4 inline-flex text-xs font-bold tracking-widest uppercase text-primary hover:gap-2 gap-1 transition-all">Read More <ArrowRight className="w-3 h-3" /></Link>
+              <div className="p-7">
+                <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5"><User className="w-3 h-3" /> admin</span>
+                  <span className="inline-flex items-center gap-1.5"><MessageCircle className="w-3 h-3" /> 0 comments</span>
+                </div>
+                <h3 className="mt-3 font-bold text-lg leading-snug hover:text-primary transition-colors">{p.t}</h3>
+                <Link to="/blog" className="mt-5 inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-primary hover:gap-3 transition-all">
+                  Read More <ArrowRight className="w-3 h-3" />
+                </Link>
               </div>
             </article>
           ))}
         </div>
       </section>
-
-      <LogoStrip />
     </SiteShell>
   );
 }
