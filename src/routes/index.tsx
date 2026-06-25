@@ -21,12 +21,12 @@ const heroCards = [
 ];
 
 const services = [
-  { t: "Automated Software", d: "Streamline operations with intelligent automation engines.", icon: Cpu },
-  { t: "Data Structuring", d: "Organize complex datasets into actionable models.", icon: Database },
-  { t: "IT Consultancy", d: "Strategic IT roadmaps from senior technology partners.", icon: Briefcase },
-  { t: "Managed IT Services", d: "End-to-end management of your IT infrastructure.", icon: Settings2 },
-  { t: "Market Strategy", d: "Data-driven market plans that scale your business.", icon: BarChart3 },
-  { t: "Software Develop", d: "Custom software crafted to fit your operations.", icon: Code2 },
+  { t: "Automated Software", d: "It is used in business process management to increase productivity & efficiency.", icon: Cpu },
+  { t: "IT Consultancy", d: "Improvement of staff productivity, cost savings, competitive edge, and more.", icon: Briefcase },
+  { t: "Market Strategy", d: "We provide a variety of the best marketing strategies to grow your business.", icon: BarChart3 },
+  { t: "Data Structuring", d: "Analyze nature of the data and its importance in the larger scheme of things.", icon: Database },
+  { t: "Managed IT Services", d: "Our managed IT services include network monitoring, security & virtualization.", icon: Settings2 },
+  { t: "Software Develop", d: "An entire process of creating, designing, deploying and supporting software.", icon: Code2 },
 ];
 
 const projects = [
