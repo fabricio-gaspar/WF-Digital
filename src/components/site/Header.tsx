@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Search, Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
+import { Phone, ChevronDown, Twitter, Facebook, Instagram } from "lucide-react";
 
 const nav = [
   { label: "Início", to: "/" },
@@ -44,7 +44,7 @@ export function Header() {
             <span className="font-display text-2xl font-black tracking-tight">infetech</span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-7 lg:ml-auto lg:mr-8">
             {nav.map((n) => (
               <Link
                 key={n.label}
@@ -61,9 +61,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button className="hidden sm:grid w-9 h-9 place-items-center text-foreground/70 hover:text-primary transition-colors">
-              <Search className="w-4 h-4" />
-            </button>
             <div className="hidden md:flex items-center gap-3">
               <div className="w-10 h-10 rounded-full purple-gradient grid place-items-center text-white">
                 <Phone className="w-4 h-4" />
