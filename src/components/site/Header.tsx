@@ -61,9 +61,6 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button className="hidden sm:grid w-9 h-9 place-items-center text-foreground/70 hover:text-primary transition-colors">
-              <Search className="w-4 h-4" />
-            </button>
             <div className="hidden md:flex items-center gap-3">
               <div className="w-10 h-10 rounded-full purple-gradient grid place-items-center text-white">
                 <Phone className="w-4 h-4" />
