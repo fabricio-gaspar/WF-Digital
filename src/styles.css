@@ -176,7 +176,7 @@
 }
 
 @utility purple-gradient {
-  background: linear-gradient(120deg, oklch(0.52 0.26 285) 0%, oklch(0.42 0.24 285) 50%, oklch(0.55 0.27 290) 100%);
+  background: linear-gradient(120deg, #FF6933 0%, #E0541F 50%, #FF7A4A 100%);
 }
 
 @utility diag-overlay {
