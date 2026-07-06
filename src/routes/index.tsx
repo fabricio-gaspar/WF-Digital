@@ -242,7 +242,7 @@ function HomePage() {
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
           <h2 className="text-3xl md:text-5xl font-black leading-[1.15]">Atendimento em tempo real em todas as<br />soluções e serviços profissionais de TI</h2>
         </div>
-        <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-l border-t border-foreground/10 bg-white">
+        <div className="container-x relative mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6 reveal-stagger">
           {services.map((s, i) => (
             <div
               key={s.t}
