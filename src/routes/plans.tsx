@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
-import { PurpleCTA } from "@/components/site/CTAs";
+
 import { Check } from "lucide-react";
 
 export const Route = createFileRoute("/plans")({
@@ -119,7 +119,6 @@ function PlansPage() {
         </div>
       </section>
 
-      <PurpleCTA />
     </SiteShell>
   );
 }

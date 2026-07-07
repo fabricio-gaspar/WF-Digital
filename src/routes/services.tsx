@@ -3,7 +3,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 
 import { Counters } from "@/components/site/Counters";
-import { PurpleCTA } from "@/components/site/CTAs";
+
 import {
   ArrowRight, Check, Code2, Sparkles, Globe, Mail, Server, Wifi,
   ClipboardCheck, Clock, Cpu,
@@ -276,7 +276,6 @@ function ServicesPage() {
       </section>
 
       <Counters />
-      <PurpleCTA />
     </SiteShell>
   );
 }
