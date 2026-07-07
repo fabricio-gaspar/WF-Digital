@@ -71,11 +71,6 @@ const services = [
   { t: "Tecnologia Sob Medida", d: "Analisamos seu cenário e entregamos a solução certa para o negócio.", icon: Cpu },
 ];
 
-const industries = [
-  { letter: "S", t: "Sistemas Sob Medida", d: "Software desenvolvido conforme o processo real da sua empresa, com evolução contínua." },
-  { letter: "I", t: "IA e Automação", d: "Automações inteligentes para atendimento, dados e rotinas administrativas." },
-  { letter: "N", t: "Nuvem e Infraestrutura", d: "Servidores, redes e hospedagem para uma operação estável, segura e escalável." },
-];
 
 const pillars = [
   { i: Users, t: "Experiência", d: "Entrega comprovada de projetos de tecnologia para empresas de diferentes portes." },
