@@ -335,13 +335,15 @@ function HomePage() {
         <div className="relative mt-14">
           <div
             ref={servicesScrollRef}
+            onMouseEnter={() => { servicesPausedRef.current = true; }}
+            onMouseLeave={() => { servicesPausedRef.current = false; }}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth px-6 md:px-10 lg:px-16 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden reveal-stagger"
           >
             {services.map((s, i) => (
               <div
                 key={s.t}
                 data-svc-card
-                className="card-tech p-10 min-h-[280px] reveal group flex flex-col shrink-0 snap-start w-[82%] sm:w-[380px]"
+                className="card-tech p-10 min-h-[280px] reveal group flex flex-col shrink-0 snap-start basis-[82%] sm:basis-[calc((100%-3rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
                 style={{ transitionDelay: `${i*70}ms`}}
               >
                 <span className="card-tech-index">— 0{i+1}</span>
