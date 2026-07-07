@@ -3,7 +3,7 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { InternalHero } from "@/components/site/InternalHero";
 import { LogoStrip } from "@/components/site/LogoStrip";
 import { Counters } from "@/components/site/Counters";
-import { DarkCTA, PurpleCTA } from "@/components/site/CTAs";
+import { DarkCTA } from "@/components/site/CTAs";
 import { Check, Star, Share2, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -133,7 +133,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <PurpleCTA />
     </SiteShell>
   );
 }
