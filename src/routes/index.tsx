@@ -1,9 +1,48 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteShell } from "@/components/site/SiteShell";
 import {
   ArrowRight, Cpu, Code2, Sparkles, Globe, Mail, Server, Wifi, ClipboardCheck, Clock,
   Award, Users, Trophy, MessageCircle, User, ChevronLeft, ChevronRight,
 } from "lucide-react";
+
+type Testimonial = {
+  name: string;
+  role: string;
+  quote: string;
+  photo: string;
+};
+
+const testimonials: Testimonial[] = [
+  {
+    name: "Ana Ribeiro",
+    role: "Diretora de Operações",
+    quote:
+      "A WF Digital entendeu exatamente o processo da nossa empresa e entregou um sistema sob medida que reduziu o retrabalho e organizou toda a operação.",
+    photo: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=720&q=80",
+  },
+  {
+    name: "Camila Alves",
+    role: "Gerente de Projetos",
+    quote:
+      "Automatizamos nosso atendimento com IA e conseguimos ganhar tempo em tarefas repetitivas. O suporte da equipe foi essencial em cada etapa.",
+    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=220&q=80",
+  },
+  {
+    name: "Marina Costa",
+    role: "Coordenadora de TI",
+    quote:
+      "A implantação da rede e dos servidores trouxe muito mais estabilidade para o dia a dia. Recomendo pela seriedade e conhecimento técnico.",
+    photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=460&q=80",
+  },
+  {
+    name: "Rafael Souza",
+    role: "Diretor Comercial",
+    quote:
+      "O site novo e a hospedagem profissional trouxeram mais credibilidade para nossa marca. Resultado direto em novos contatos e clientes.",
+    photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=220&q=80",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
