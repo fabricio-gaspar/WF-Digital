@@ -222,7 +222,7 @@ function ServicesPage() {
         </div>
       </section>
 
-      <LogoStrip />
+      
 
       {/* Detailed service blocks */}
       <section className="section-y bg-section">
