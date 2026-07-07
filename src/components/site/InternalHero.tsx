@@ -3,64 +3,65 @@ import { ChevronRight } from "lucide-react";
 
 export function InternalHero({ title, crumb }: { title: string; crumb?: string }) {
   return (
-    <section className="relative h-[260px] md:h-[300px] overflow-hidden bg-[#141018]">
-      {/* Background photo — grayscale, slightly opaque */}
+    <section className="relative h-[260px] md:h-[300px] overflow-hidden bg-[#171321]">
+      {/* Background photo — muted, grayscale and slightly opaque like the reference */}
       <img
         src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&auto=format&fit=crop&q=80"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover grayscale opacity-55"
+        className="absolute inset-0 w-full h-full object-cover grayscale opacity-50"
       />
 
-      {/* Subtle dark tint wash so the photo reads as background, not foreground */}
+      {/* Low-contrast dark wash keeps the image soft and slightly opaque */}
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(20,16,24,0.55) 0%, rgba(20,16,24,0.35) 50%, rgba(20,16,24,0.6) 100%)",
-        }}
-      />
-      {/* Faint brand color glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 100% 50%, color-mix(in oklab, var(--color-primary) 22%, transparent) 0%, transparent 55%)",
+            "linear-gradient(90deg, rgba(16,15,24,0.72) 0%, rgba(18,16,27,0.55) 48%, rgba(23,19,33,0.76) 100%), linear-gradient(180deg, rgba(16,15,24,0.25) 0%, rgba(16,15,24,0.58) 100%)",
         }}
       />
 
-      {/* Right-side angled accent — thin, elegant */}
+      {/* Reference-style purple veil: compact diagonal shape with a steeper cut */}
       <div
         aria-hidden
-        className="absolute top-0 right-0 h-full w-[22%] md:w-[18%] pointer-events-none"
+        className="absolute inset-y-0 right-0 w-[58%] md:w-[52%] pointer-events-none"
         style={{
-          clipPath: "polygon(45% 0, 100% 0, 100% 100%, 15% 100%)",
+          clipPath: "polygon(0 0, 100% 0, 100% 100%, 44% 100%)",
           background:
-            "linear-gradient(135deg, color-mix(in oklab, var(--color-primary) 55%, #141018 45%) 0%, color-mix(in oklab, var(--color-primary) 20%, #141018 80%) 100%)",
+            "linear-gradient(135deg, rgba(151,118,234,0.62) 0%, rgba(91,45,180,0.44) 48%, rgba(53,22,120,0.68) 100%)",
+          mixBlendMode: "screen",
+          opacity: 0.66,
         }}
       />
 
-      {/* Very subtle diagonal streak lines confined to the right accent */}
+      {/* Soft purple depth on the right edge, matching the reference tone */}
+      <div
+        aria-hidden
+        className="absolute inset-y-0 right-0 w-[44%] pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(77,39,158,0.18) 48%, rgba(50,24,115,0.38) 100%)",
+        }}
+      />
+
+      {/* Fine lower-right strokes — thin, spaced and subtle like the supplied crop */}
       <svg
         aria-hidden
-        viewBox="0 0 400 400"
+        viewBox="0 0 320 320"
         preserveAspectRatio="none"
-        className="absolute top-0 right-0 h-full w-[22%] md:w-[18%] pointer-events-none"
-        style={{ clipPath: "polygon(45% 0, 100% 0, 100% 100%, 15% 100%)" }}
+        className="absolute bottom-0 right-0 h-[62%] w-[30%] md:w-[22%] pointer-events-none"
       >
-        <g stroke="rgba(255,255,255,0.10)" strokeWidth="0.6" fill="none">
-          <path d="M-20 360 L360 -20" />
-          <path d="M20 380 L400 0" />
-          <path d="M60 400 L440 20" />
-          <path d="M100 420 L480 40" />
-          <path d="M140 440 L520 60" />
+        <g stroke="rgba(119,78,214,0.52)" strokeWidth="4" fill="none" strokeLinecap="square">
+          <path d="M36 342 L304 -18" />
+          <path d="M78 348 L346 -12" />
+          <path d="M120 354 L388 -6" />
+          <path d="M162 360 L430 0" />
         </g>
       </svg>
 
       {/* Content */}
       <div className="relative h-full container-x flex flex-col items-center justify-center text-center text-white">
-        <h1 className="text-3xl md:text-[42px] font-black tracking-[0.04em] uppercase">
+        <h1 className="text-3xl md:text-[42px] font-black tracking-[0.04em] uppercase !text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.35)]">
           {title}
         </h1>
         <div className="mt-3 flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-[0.32em] text-white/70">
