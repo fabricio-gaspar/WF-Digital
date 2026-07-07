@@ -343,20 +343,14 @@ function HomePage() {
               <div
                 key={s.t}
                 data-svc-card
-                className="card-tech p-10 min-h-[280px] reveal group flex flex-col shrink-0 snap-start basis-[82%] sm:basis-[calc((100%-3rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
+                className="card-tech p-8 reveal group text-center shrink-0 snap-start basis-[82%] sm:basis-[calc((100%-3rem)/2)] lg:basis-[calc((100%-3rem)/3)]"
                 style={{ transitionDelay: `${i*70}ms`}}
               >
-                <span className="card-tech-index">— 0{i+1}</span>
-                <h3 className="card-tech-title font-black text-[22px] tracking-tight">{s.t}</h3>
-                <p className="mt-5 text-[14px] text-muted-foreground leading-relaxed max-w-[260px]">{s.d}</p>
-                <span className="card-tech-cta mt-6">
-                  Saiba mais <ArrowUpRight className="w-3.5 h-3.5" strokeWidth={2} />
-                </span>
-                <div className="absolute right-8 bottom-8">
-                  <div className="card-tech-icon">
-                    <s.icon className="w-7 h-7" strokeWidth={1.5} />
-                  </div>
+                <div className="w-16 h-16 mx-auto rounded-full purple-gradient text-white grid place-items-center mb-5">
+                  <s.icon className="w-7 h-7" strokeWidth={1.8} />
                 </div>
+                <h3 className="text-lg font-bold">{s.t}</h3>
+                <p className="text-sm text-muted-foreground mt-3 leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
