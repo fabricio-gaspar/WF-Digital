@@ -13,7 +13,7 @@ export function Footer() {
           </div>
 
           <div className="relative overflow-hidden rounded-2xl px-8 md:px-14 py-10 md:py-14" style={{
-            background: "linear-gradient(90deg, #3E8BFF 0%, #6E5BF0 60%, #7A4BD6 100%)",
+            background: "linear-gradient(90deg, #FF8A5C 0%, #FF6933 55%, #E0541F 100%)",
           }}>
             {/* Dotted wave pattern */}
             <div aria-hidden className="absolute inset-0 pointer-events-none opacity-30" style={{
