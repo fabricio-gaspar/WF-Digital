@@ -314,16 +314,6 @@ function HomePage() {
 
       {/* SERVICES GRID 3x2 */}
       <section className="section-y bg-section relative overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 opacity-[0.25] pointer-events-none"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(106,38,218,0.35) 1px, transparent 1.5px)",
-            backgroundSize: "26px 26px",
-            maskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-            WebkitMaskImage: "radial-gradient(ellipse at center, transparent 30%, black 80%)",
-          }}
-        />
         <div className="container-x relative text-center reveal max-w-5xl mx-auto">
           <div className="eyebrow mb-4 justify-center">O que oferecemos aos nossos clientes</div>
           <h2 className="text-3xl md:text-4xl lg:text-[38px] font-black leading-[1.2]">Atendimento em tempo real em todas as soluções<br /> e serviços profissionais de TI</h2>
