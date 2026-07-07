@@ -90,6 +90,8 @@ const posts = [
 ];
 
 function HomePage() {
+  const [activeT, setActiveT] = useState(0);
+  const active = testimonials[activeT];
   return (
     <SiteShell>
       {/* HERO */}
