@@ -62,7 +62,7 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <div className="hidden md:flex items-center gap-3">
+            <div className="hidden xl:flex items-center gap-3">
               <div className="w-10 h-10 rounded-full purple-gradient grid place-items-center text-white">
                 <Phone className="w-4 h-4" />
               </div>
@@ -71,12 +71,16 @@ export function Header() {
                 <div className="text-sm font-bold">+55 (11) 9 9744-1875</div>
               </div>
             </div>
+            <Link to="/plans" className="hidden md:inline-flex btn-primary !py-2.5 !px-5 !text-sm">
+              Teste grátis
+            </Link>
             <button onClick={() => setOpen(!open)} className="lg:hidden p-2">
               <div className="w-5 h-0.5 bg-foreground mb-1" />
               <div className="w-5 h-0.5 bg-foreground mb-1" />
               <div className="w-5 h-0.5 bg-foreground" />
             </button>
           </div>
+
         </div>
         {open && (
           <div className="lg:hidden border-t bg-white">
