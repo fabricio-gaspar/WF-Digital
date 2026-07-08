@@ -113,7 +113,7 @@ function HomePage() {
         {/* Full-bleed hero image on the right half */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
           <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1400&q=80"
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"
             alt="Profissional de tecnologia"
             className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100"
           />
@@ -317,7 +317,7 @@ function HomePage() {
                   aria-label={`Ver depoimento de ${t.name}`}
                   className={`absolute ${style} rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.04] focus:outline-none ${isActive ? "ring-[4px] ring-[#FF6933] ring-offset-2 ring-offset-[#fff4ee]" : "ring-2 ring-white"}`}
                 >
-                  <img src={t.photo} alt={t.name} className="w-full h-full object-cover" />
+                  <img loading="lazy" decoding="async" src={t.photo} alt={t.name} className="w-full h-full object-cover" />
                 </button>
               );
             })}
@@ -390,7 +390,7 @@ function HomePage() {
             <Link to="/servicos" className="btn-primary mt-7">Saiba mais <ArrowRight className="w-4 h-4" /></Link>
           </div>
           <div className="relative reveal">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80" className="w-full h-[380px] object-cover" alt="" />
+            <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&q=80" className="w-full h-[380px] object-cover" alt="" />
           </div>
         </div>
       </section>
@@ -425,7 +425,7 @@ function HomePage() {
           {posts.map((p) => (
             <article key={p.t} className="card-tech overflow-hidden reveal">
               <div className="relative overflow-hidden">
-                <img src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
+                <img loading="lazy" decoding="async" src={p.img} className="w-full h-56 object-cover transition-transform duration-700 hover:scale-110" alt={p.t} />
                 <div className="absolute top-4 left-4 bg-primary text-white text-center px-3 py-2 leading-none">
                   <div className="text-2xl font-black">{p.d}</div>
                   <div className="text-[10px] font-bold tracking-widest mt-1">{p.m}</div>
