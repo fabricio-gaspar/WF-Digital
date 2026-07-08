@@ -226,7 +226,8 @@ function ServicesPage() {
 
       {/* Detailed service blocks */}
       <section className="section-y bg-section">
-        <div className="container-x flex flex-col gap-10">
+        <div className="container-x grid md:grid-cols-2 gap-8">
+
           {blocks.map((b, i) => (
             <article
               key={b.id}
