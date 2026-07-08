@@ -32,9 +32,10 @@
   --color-dark: var(--dark);
   --color-dark-foreground: var(--dark-foreground);
   --color-section: var(--section);
-  --font-display: "Catamaran", "Inter", sans-serif;
+  --font-display: "Roboto", "Inter", sans-serif;
   --font-sans: "Roboto", "Inter", sans-serif;
   --font-serif: "Roboto Slab", "Georgia", serif;
+  --font-accent: "Catamaran", "Inter", sans-serif;
 }
 
 :root {
