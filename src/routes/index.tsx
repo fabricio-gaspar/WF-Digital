@@ -213,7 +213,7 @@ function HomePage() {
               style={{ transitionDelay: `${i * 100}ms` }}
             >
               <span className="absolute right-6 bottom-4 text-[70px] font-black leading-none text-foreground/[0.07] select-none">{c.n}</span>
-              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight whitespace-nowrap">{c.t}</h3>
+              <h3 className="relative text-[18px] font-black uppercase tracking-wide leading-tight ">{c.t}</h3>
               <p className="relative mt-5 text-[13px] text-muted-foreground leading-relaxed max-w-[220px]">{c.d}</p>
             </div>
           ))}
@@ -400,7 +400,7 @@ function HomePage() {
       <section className="section-y bg-section">
         <div className="container-x text-center reveal max-w-3xl mx-auto">
           <div className="eyebrow mb-3 justify-center">Caminho da Tecnologia</div>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight"><span className="block whitespace-nowrap">A agência de soluções e serviços de TI</span><span className="block whitespace-nowrap">em que você pode confiar</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight"><span className="block ">A agência de soluções e serviços de TI</span><span className="block ">em que você pode confiar</span></h2>
         </div>
         <div className="container-x mt-12 grid md:grid-cols-3 gap-6 reveal-stagger">
           {pillars.map((p) => (
