@@ -12,16 +12,11 @@ export function SiteShell({ children }: { children: ReactNode }) {
         }
       });
     }, { threshold: 0.15 });
-    const observed = new WeakSet<Element>();
-    const observeAll = () => {
-      document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
-        if (!observed.has(el)) { observed.add(el); obs.observe(el); }
-      });
-    };
-    observeAll();
-    const mo = new MutationObserver(() => observeAll());
-    mo.observe(document.body, { childList: true, subtree: true });
-    return () => { obs.disconnect(); mo.disconnect(); };
+    // Observe on mount and again on next frame to catch late-mounted children.
+    const observe = () => document.querySelectorAll<HTMLElement>(".reveal:not(.in)").forEach((el) => obs.observe(el));
+    observe();
+    const raf = requestAnimationFrame(observe);
+    return () => { cancelAnimationFrame(raf); obs.disconnect(); };
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-background">
