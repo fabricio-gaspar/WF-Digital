@@ -96,7 +96,8 @@ function ContactPage() {
         <iframe
           title="mapa"
           className="w-full h-[420px] grayscale"
-          src="https://www.openstreetmap.org/export/embed.html?bbox=-46.66%2C-23.57%2C-46.64%2C-23.55&layer=mapnik"
+          loading="lazy"
+          src="https://www.google.com/maps?q=Rua%20Ignes%20Mendes%20de%20Moraes%2C%2010%20-%20Esplanada%20Mendes%2C%20S%C3%A3o%20Roque%20-%20SP&output=embed"
         />
       </section>
     </SiteShell>
