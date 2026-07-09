@@ -35,6 +35,7 @@ import { Route as AdminMediaRouteImport } from './routes/admin.media'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminHeroRouteImport } from './routes/admin.hero'
 import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
+import { Route as AdminFooterRouteImport } from './routes/admin.footer'
 import { Route as AdminFaqsRouteImport } from './routes/admin.faqs'
 import { Route as AdminChatbotRouteImport } from './routes/admin.chatbot'
 import { Route as AdminBlogRouteImport } from './routes/admin.blog'
@@ -170,6 +171,11 @@ const AdminGalleryRoute = AdminGalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminFooterRoute = AdminFooterRouteImport.update({
+  id: '/footer',
+  path: '/footer',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminFaqsRoute = AdminFaqsRouteImport.update({
   id: '/faqs',
   path: '/faqs',
@@ -203,6 +209,7 @@ export interface FileRoutesByFullPath {
   '/admin/blog': typeof AdminBlogRouteWithChildren
   '/admin/chatbot': typeof AdminChatbotRoute
   '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/footer': typeof AdminFooterRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
@@ -234,6 +241,7 @@ export interface FileRoutesByTo {
   '/admin/blog': typeof AdminBlogRouteWithChildren
   '/admin/chatbot': typeof AdminChatbotRoute
   '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/footer': typeof AdminFooterRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
@@ -267,6 +275,7 @@ export interface FileRoutesById {
   '/admin/blog': typeof AdminBlogRouteWithChildren
   '/admin/chatbot': typeof AdminChatbotRoute
   '/admin/faqs': typeof AdminFaqsRoute
+  '/admin/footer': typeof AdminFooterRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
@@ -301,6 +310,7 @@ export interface FileRouteTypes {
     | '/admin/blog'
     | '/admin/chatbot'
     | '/admin/faqs'
+    | '/admin/footer'
     | '/admin/gallery'
     | '/admin/hero'
     | '/admin/login'
@@ -332,6 +342,7 @@ export interface FileRouteTypes {
     | '/admin/blog'
     | '/admin/chatbot'
     | '/admin/faqs'
+    | '/admin/footer'
     | '/admin/gallery'
     | '/admin/hero'
     | '/admin/login'
@@ -364,6 +375,7 @@ export interface FileRouteTypes {
     | '/admin/blog'
     | '/admin/chatbot'
     | '/admin/faqs'
+    | '/admin/footer'
     | '/admin/gallery'
     | '/admin/hero'
     | '/admin/login'
@@ -580,6 +592,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminGalleryRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/footer': {
+      id: '/admin/footer'
+      path: '/footer'
+      fullPath: '/admin/footer'
+      preLoaderRoute: typeof AdminFooterRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/faqs': {
       id: '/admin/faqs'
       path: '/faqs'
@@ -627,6 +646,7 @@ interface AdminRouteChildren {
   AdminBlogRoute: typeof AdminBlogRouteWithChildren
   AdminChatbotRoute: typeof AdminChatbotRoute
   AdminFaqsRoute: typeof AdminFaqsRoute
+  AdminFooterRoute: typeof AdminFooterRoute
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminHeroRoute: typeof AdminHeroRoute
   AdminLoginRoute: typeof AdminLoginRoute
@@ -651,6 +671,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminBlogRoute: AdminBlogRouteWithChildren,
   AdminChatbotRoute: AdminChatbotRoute,
   AdminFaqsRoute: AdminFaqsRoute,
+  AdminFooterRoute: AdminFooterRoute,
   AdminGalleryRoute: AdminGalleryRoute,
   AdminHeroRoute: AdminHeroRoute,
   AdminLoginRoute: AdminLoginRoute,
