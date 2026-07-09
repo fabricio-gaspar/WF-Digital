@@ -26,6 +26,7 @@ import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
 import { Route as AdminServicesRouteImport } from './routes/admin.services'
 import { Route as AdminPlansRouteImport } from './routes/admin.plans'
 import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
+import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 import { Route as AdminMenuRouteImport } from './routes/admin.menu'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminHeroRouteImport } from './routes/admin.hero'
@@ -119,6 +120,11 @@ const AdminPartnersRoute = AdminPartnersRouteImport.update({
   path: '/partners',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminMenuRoute = AdminMenuRouteImport.update({
   id: '/menu',
   path: '/menu',
@@ -170,6 +176,7 @@ export interface FileRoutesByFullPath {
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/menu': typeof AdminMenuRoute
+  '/admin/messages': typeof AdminMessagesRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/plans': typeof AdminPlansRoute
   '/admin/services': typeof AdminServicesRoute
@@ -195,6 +202,7 @@ export interface FileRoutesByTo {
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/menu': typeof AdminMenuRoute
+  '/admin/messages': typeof AdminMessagesRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/plans': typeof AdminPlansRoute
   '/admin/services': typeof AdminServicesRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/admin/hero': typeof AdminHeroRoute
   '/admin/login': typeof AdminLoginRoute
   '/admin/menu': typeof AdminMenuRoute
+  '/admin/messages': typeof AdminMessagesRoute
   '/admin/partners': typeof AdminPartnersRoute
   '/admin/plans': typeof AdminPlansRoute
   '/admin/services': typeof AdminServicesRoute
@@ -250,6 +259,7 @@ export interface FileRouteTypes {
     | '/admin/hero'
     | '/admin/login'
     | '/admin/menu'
+    | '/admin/messages'
     | '/admin/partners'
     | '/admin/plans'
     | '/admin/services'
@@ -275,6 +285,7 @@ export interface FileRouteTypes {
     | '/admin/hero'
     | '/admin/login'
     | '/admin/menu'
+    | '/admin/messages'
     | '/admin/partners'
     | '/admin/plans'
     | '/admin/services'
@@ -301,6 +312,7 @@ export interface FileRouteTypes {
     | '/admin/hero'
     | '/admin/login'
     | '/admin/menu'
+    | '/admin/messages'
     | '/admin/partners'
     | '/admin/plans'
     | '/admin/services'
@@ -445,6 +457,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPartnersRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/menu': {
       id: '/admin/menu'
       path: '/menu'
@@ -516,6 +535,7 @@ interface AdminRouteChildren {
   AdminHeroRoute: typeof AdminHeroRoute
   AdminLoginRoute: typeof AdminLoginRoute
   AdminMenuRoute: typeof AdminMenuRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
   AdminPartnersRoute: typeof AdminPartnersRoute
   AdminPlansRoute: typeof AdminPlansRoute
   AdminServicesRoute: typeof AdminServicesRoute
@@ -534,6 +554,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminHeroRoute: AdminHeroRoute,
   AdminLoginRoute: AdminLoginRoute,
   AdminMenuRoute: AdminMenuRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
   AdminPartnersRoute: AdminPartnersRoute,
   AdminPlansRoute: AdminPlansRoute,
   AdminServicesRoute: AdminServicesRoute,
