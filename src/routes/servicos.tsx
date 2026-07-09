@@ -105,6 +105,14 @@ const services: Service[] = [
 ];
 
 function ServicesPage() {
+  usePageSeoInject("/servicos");
+  const { data: dbServices } = usePublicServices();
+  const list: Service[] = (dbServices && dbServices.length > 0)
+    ? dbServices.map((s: any) => {
+        const IconComp = (s.icon_name && (Icons as any)[s.icon_name]) || Shield;
+        return { id: s.slug || s.id, icon: IconComp, title: s.title, description: s.description || "", featured: s.featured_on_home };
+      })
+    : services;
   return (
     <SiteShell>
       <InternalHero title="Serviços" crumb="Serviços" />
