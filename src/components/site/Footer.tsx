@@ -95,7 +95,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-x py-5 flex items-center justify-center relative">
-          <p className="text-xs text-white/55">© {new Date().getFullYear()} {siteName}. Todos os direitos reservados.</p>
+          <p className="text-xs text-white/55">{s?.footer_text || `© ${new Date().getFullYear()} ${siteName}. Todos os direitos reservados.`}</p>
           <button onClick={() => typeof window !== "undefined" && window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Voltar ao topo" className="absolute right-5 md:right-8 w-10 h-10 rounded-full border-2 border-primary text-primary grid place-items-center hover:bg-primary hover:text-white transition-colors">
             <ArrowUp className="w-4 h-4" />
