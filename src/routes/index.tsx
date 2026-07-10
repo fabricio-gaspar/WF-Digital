@@ -160,16 +160,21 @@ function HomePage() {
   return (
     <SiteShell>
       {/* HERO */}
-      <section className="relative bg-[#fff4ee] overflow-hidden">
+      <section
+        className="relative bg-[#fff4ee] overflow-hidden"
+        onMouseEnter={() => { heroPausedRef.current = true; }}
+        onMouseLeave={() => { heroPausedRef.current = false; }}
+      >
         {/* Full-bleed hero image on the right half */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
           <img
+            key={banner?.id || "fallback"}
             src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"}
             alt={banner?.title || "Profissional de tecnologia"}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100"
+            className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100 animate-fade-in"
           />
           {/* fade overlay on the left edge of the image to blend into bg */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#fff4ee] via-[#fff4ee]/40 to-transparent lg:via-transparent" />
