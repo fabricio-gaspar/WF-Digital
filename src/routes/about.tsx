@@ -64,8 +64,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <Counters />
-
       <DarkCTA />
       
 
@@ -126,6 +124,9 @@ function AboutPage() {
           ))}
         </div>
       </section>
+
+      <Counters />
+
 
     </SiteShell>
   );
