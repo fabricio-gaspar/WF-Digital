@@ -13,50 +13,58 @@ export const Route = createFileRoute("/admin")({
 });
 
 type MenuItem = { to: string; label: string; icon: typeof Home; exact?: boolean; adminOnly?: boolean };
-type MenuSection = { section: string; items: MenuItem[] };
+type MenuSection = { section: string; hint?: string; items: MenuItem[] };
 
 const menuSections: MenuSection[] = [
   {
-    section: "Geral",
-    items: [{ to: "/admin", label: "Painel", icon: Home, exact: true }],
+    section: "Início",
+    items: [
+      { to: "/admin", label: "Painel", icon: Home, exact: true },
+      { to: "/admin/messages", label: "Mensagens", icon: Mail },
+      { to: "/admin/quotes", label: "Orçamentos", icon: MessageSquare },
+    ],
   },
   {
-    section: "Conteúdo",
+    section: "Página inicial",
+    hint: "O que aparece na home",
     items: [
-      { to: "/admin/hero", label: "Banners (Hero)", icon: Sparkles },
+      { to: "/admin/hero", label: "Hero (topo do site)", icon: Sparkles },
       { to: "/admin/services", label: "Serviços", icon: Briefcase },
       { to: "/admin/plans", label: "Planos", icon: DollarSign },
       { to: "/admin/testimonials", label: "Depoimentos", icon: Star },
-      { to: "/admin/faqs", label: "FAQ", icon: HelpCircle },
-      { to: "/admin/team", label: "Equipe", icon: UserIcon },
-      { to: "/admin/partners", label: "Parceiros", icon: Building2 },
-      { to: "/admin/gallery", label: "Galeria", icon: ImageIcon },
       { to: "/admin/blog", label: "Blog", icon: FileText },
     ],
   },
   {
-    section: "Leads & Contato",
+    section: "Outras páginas",
     items: [
-      { to: "/admin/messages", label: "Mensagens", icon: Mail },
-      { to: "/admin/quotes", label: "Orçamentos", icon: MessageSquare },
+      { to: "/admin/team", label: "Equipe (Sobre)", icon: UserIcon },
+      { to: "/admin/faqs", label: "FAQ", icon: HelpCircle },
+      { to: "/admin/partners", label: "Parceiros", icon: Building2 },
+      { to: "/admin/gallery", label: "Galeria", icon: ImageIcon },
+    ],
+  },
+  {
+    section: "Atendimento",
+    items: [
       { to: "/admin/whatsapp", label: "WhatsApp", icon: MessageCircle, adminOnly: true },
       { to: "/admin/chatbot", label: "Chatbot", icon: Bot, adminOnly: true },
     ],
   },
   {
-    section: "Layout do site",
+    section: "Identidade e navegação",
     items: [
       { to: "/admin/settings", label: "Identidade & Contato", icon: Palette, adminOnly: true },
-      { to: "/admin/menu", label: "Menu", icon: MenuIcon },
+      { to: "/admin/menu", label: "Menu do site", icon: MenuIcon },
       { to: "/admin/footer", label: "Rodapé", icon: LayoutIcon },
-      { to: "/admin/social", label: "Redes Sociais", icon: Share2 },
-      { to: "/admin/media", label: "Biblioteca de mídia", icon: ImageIcon },
-      { to: "/admin/seo", label: "SEO por página", icon: Search, adminOnly: true },
+      { to: "/admin/social", label: "Redes sociais", icon: Share2 },
     ],
   },
   {
-    section: "Sistema",
+    section: "Avançado",
     items: [
+      { to: "/admin/seo", label: "SEO por página", icon: Search, adminOnly: true },
+      { to: "/admin/media", label: "Biblioteca de mídia", icon: ImageIcon },
       { to: "/admin/users", label: "Administradores", icon: Users, adminOnly: true },
     ],
   },
