@@ -101,7 +101,17 @@ function HomePage() {
   const { data: cmsTestimonials } = usePublicTestimonials();
   const { data: cmsPosts } = usePublicBlog();
   const { data: cmsBanners } = useHeroBanners();
-  const banner = cmsBanners?.[0];
+  const banners = cmsBanners ?? [];
+  const [bannerIdx, setBannerIdx] = useState(0);
+  const banner = banners.length ? banners[bannerIdx % banners.length] : undefined;
+  const heroPausedRef = useRef(false);
+  const nextBanner = () => banners.length && setBannerIdx((i) => (i + 1) % banners.length);
+  const prevBanner = () => banners.length && setBannerIdx((i) => (i - 1 + banners.length) % banners.length);
+  useEffect(() => {
+    if (banners.length < 2) return;
+    const id = window.setInterval(() => { if (!document.hidden && !heroPausedRef.current) nextBanner(); }, 6000);
+    return () => window.clearInterval(id);
+  }, [banners.length]);
 
   const heroCardsList = (cmsHeroCards && cmsHeroCards.length ? cmsHeroCards.map((c: any) => ({
     n: c.number || "", t: c.title, d: c.description || "", icon: getIcon(c.icon_name, Code2),
@@ -150,16 +160,21 @@ function HomePage() {
   return (
     <SiteShell>
       {/* HERO */}
-      <section className="relative bg-[#fff4ee] overflow-hidden">
+      <section
+        className="relative bg-[#fff4ee] overflow-hidden"
+        onMouseEnter={() => { heroPausedRef.current = true; }}
+        onMouseLeave={() => { heroPausedRef.current = false; }}
+      >
         {/* Full-bleed hero image on the right half */}
         <div className="absolute inset-y-0 right-0 w-full lg:w-1/2 pointer-events-none">
           <img
+            key={banner?.id || "fallback"}
             src={banner?.image_desktop_url || "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=70&auto=format"}
             alt={banner?.title || "Profissional de tecnologia"}
             loading="eager"
             fetchPriority="high"
             decoding="async"
-            className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100"
+            className="w-full h-full object-cover grayscale opacity-90 lg:opacity-100 animate-fade-in"
           />
           {/* fade overlay on the left edge of the image to blend into bg */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#fff4ee] via-[#fff4ee]/40 to-transparent lg:via-transparent" />
@@ -248,22 +263,37 @@ function HomePage() {
           </div>
 
           {/* slider prev/next controls on right */}
-          <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-center gap-3 z-10">
-            <button
-              type="button"
-              aria-label="Anterior"
-              className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
-            <button
-              type="button"
-              aria-label="Próximo"
-              className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-          </div>
+          {banners.length > 1 && (
+            <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-center gap-3 z-10">
+              <button
+                type="button"
+                onClick={prevBanner}
+                aria-label="Anterior"
+                className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <div className="flex flex-col items-center gap-1.5 py-1">
+                {banners.map((b: any, i: number) => (
+                  <button
+                    key={b.id}
+                    type="button"
+                    onClick={() => setBannerIdx(i)}
+                    aria-label={`Ir para slide ${i + 1}`}
+                    className={`w-1.5 rounded-full transition-all duration-300 ${i === bannerIdx % banners.length ? "h-6 bg-primary" : "h-1.5 bg-foreground/25 hover:bg-foreground/40"}`}
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                onClick={nextBanner}
+                aria-label="Próximo"
+                className="w-11 h-11 rounded-full border border-foreground/25 text-foreground/60 grid place-items-center transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:-translate-y-0.5"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* overlapping cards */}
