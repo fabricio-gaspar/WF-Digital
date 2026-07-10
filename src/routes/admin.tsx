@@ -136,6 +136,7 @@ VALUES ('${user.id}', 'admin');`}</pre>
           return (
             <div key={sec.section}>
               <div className="px-3 pb-1 text-[10px] uppercase font-semibold text-slate-400 tracking-wider">{sec.section}</div>
+              {sec.hint && <div className="px-3 pb-1 text-[10px] text-slate-400/80">{sec.hint}</div>}
               <div className="space-y-0.5">
                 {items.map((m) => {
                   const active = m.exact ? path === m.to : path.startsWith(m.to);
