@@ -17,7 +17,7 @@ export function Footer() {
 
   return (
     <footer className="relative bg-[color:var(--dark,#05070d)] text-white/75 mt-32">
-      <div className="container-x pt-24 pb-14 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <div className="container-x pt-24 pb-14 grid gap-12 md:grid-cols-2 lg:grid-cols-5">
         <div>
           <Link to="/" className="flex items-center gap-2 mb-5">
             {s?.logo_url ? <img src={s.logo_url} alt={siteName} className="h-9 w-auto" /> : (
