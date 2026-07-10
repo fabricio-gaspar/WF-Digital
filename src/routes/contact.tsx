@@ -122,7 +122,7 @@ function ContactPage() {
           title="mapa"
           className="w-full h-[420px] grayscale"
           loading="lazy"
-          src="https://www.google.com/maps?q=Rua%20Ignes%20Mendes%20de%20Moraes%2C%2010%20-%20Esplanada%20Mendes%2C%20S%C3%A3o%20Roque%20-%20SP&output=embed"
+          src={settings?.map_embed_url || "https://www.google.com/maps?q=Rua%20Ignes%20Mendes%20de%20Moraes%2C%2010%20-%20Esplanada%20Mendes%2C%20S%C3%A3o%20Roque%20-%20SP&output=embed"}
         />
       </section>
     </SiteShell>
