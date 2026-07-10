@@ -19,6 +19,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AdminLoginRouteImport } from './routes/admin_.login'
 import { Route as AdminWhatsappRouteImport } from './routes/admin.whatsapp'
 import { Route as AdminUsersRouteImport } from './routes/admin.users'
 import { Route as AdminTestimonialsRouteImport } from './routes/admin.testimonials'
@@ -33,7 +34,6 @@ import { Route as AdminPartnersRouteImport } from './routes/admin.partners'
 import { Route as AdminMessagesRouteImport } from './routes/admin.messages'
 import { Route as AdminMenuRouteImport } from './routes/admin.menu'
 import { Route as AdminMediaRouteImport } from './routes/admin.media'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminHeroRouteImport } from './routes/admin.hero'
 import { Route as AdminGalleryRouteImport } from './routes/admin.gallery'
 import { Route as AdminFooterRouteImport } from './routes/admin.footer'
@@ -91,6 +91,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin_/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AdminWhatsappRoute = AdminWhatsappRouteImport.update({
   id: '/whatsapp',
@@ -162,11 +167,6 @@ const AdminMediaRoute = AdminMediaRouteImport.update({
   path: '/media',
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminHeroRoute = AdminHeroRouteImport.update({
   id: '/hero',
   path: '/hero',
@@ -218,7 +218,6 @@ export interface FileRoutesByFullPath {
   '/admin/footer': typeof AdminFooterRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
-  '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/menu': typeof AdminMenuRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -233,6 +232,7 @@ export interface FileRoutesByFullPath {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/whatsapp': typeof AdminWhatsappRoute
+  '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/blog/$id': typeof AdminBlogIdRoute
@@ -251,7 +251,6 @@ export interface FileRoutesByTo {
   '/admin/footer': typeof AdminFooterRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
-  '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/menu': typeof AdminMenuRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -266,6 +265,7 @@ export interface FileRoutesByTo {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/whatsapp': typeof AdminWhatsappRoute
+  '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/admin': typeof AdminIndexRoute
   '/admin/blog/$id': typeof AdminBlogIdRoute
@@ -286,7 +286,6 @@ export interface FileRoutesById {
   '/admin/footer': typeof AdminFooterRoute
   '/admin/gallery': typeof AdminGalleryRoute
   '/admin/hero': typeof AdminHeroRoute
-  '/admin/login': typeof AdminLoginRoute
   '/admin/media': typeof AdminMediaRoute
   '/admin/menu': typeof AdminMenuRoute
   '/admin/messages': typeof AdminMessagesRoute
@@ -301,6 +300,7 @@ export interface FileRoutesById {
   '/admin/testimonials': typeof AdminTestimonialsRoute
   '/admin/users': typeof AdminUsersRoute
   '/admin/whatsapp': typeof AdminWhatsappRoute
+  '/admin_/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/admin/blog/$id': typeof AdminBlogIdRoute
@@ -322,7 +322,6 @@ export interface FileRouteTypes {
     | '/admin/footer'
     | '/admin/gallery'
     | '/admin/hero'
-    | '/admin/login'
     | '/admin/media'
     | '/admin/menu'
     | '/admin/messages'
@@ -337,6 +336,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/whatsapp'
+    | '/admin/login'
     | '/blog/$slug'
     | '/admin/'
     | '/admin/blog/$id'
@@ -355,7 +355,6 @@ export interface FileRouteTypes {
     | '/admin/footer'
     | '/admin/gallery'
     | '/admin/hero'
-    | '/admin/login'
     | '/admin/media'
     | '/admin/menu'
     | '/admin/messages'
@@ -370,6 +369,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/whatsapp'
+    | '/admin/login'
     | '/blog/$slug'
     | '/admin'
     | '/admin/blog/$id'
@@ -389,7 +389,6 @@ export interface FileRouteTypes {
     | '/admin/footer'
     | '/admin/gallery'
     | '/admin/hero'
-    | '/admin/login'
     | '/admin/media'
     | '/admin/menu'
     | '/admin/messages'
@@ -404,6 +403,7 @@ export interface FileRouteTypes {
     | '/admin/testimonials'
     | '/admin/users'
     | '/admin/whatsapp'
+    | '/admin_/login'
     | '/blog/$slug'
     | '/admin/'
     | '/admin/blog/$id'
@@ -418,6 +418,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   PlansRoute: typeof PlansRoute
   ServicosRoute: typeof ServicosRoute
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -491,6 +492,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
+    }
+    '/admin_/login': {
+      id: '/admin_/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/admin/whatsapp': {
       id: '/admin/whatsapp'
@@ -590,13 +598,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminMediaRouteImport
       parentRoute: typeof AdminRoute
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
-      parentRoute: typeof AdminRoute
-    }
     '/admin/hero': {
       id: '/admin/hero'
       path: '/hero'
@@ -668,7 +669,6 @@ interface AdminRouteChildren {
   AdminFooterRoute: typeof AdminFooterRoute
   AdminGalleryRoute: typeof AdminGalleryRoute
   AdminHeroRoute: typeof AdminHeroRoute
-  AdminLoginRoute: typeof AdminLoginRoute
   AdminMediaRoute: typeof AdminMediaRoute
   AdminMenuRoute: typeof AdminMenuRoute
   AdminMessagesRoute: typeof AdminMessagesRoute
@@ -693,7 +693,6 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminFooterRoute: AdminFooterRoute,
   AdminGalleryRoute: AdminGalleryRoute,
   AdminHeroRoute: AdminHeroRoute,
-  AdminLoginRoute: AdminLoginRoute,
   AdminMediaRoute: AdminMediaRoute,
   AdminMenuRoute: AdminMenuRoute,
   AdminMessagesRoute: AdminMessagesRoute,
@@ -732,7 +731,18 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   PlansRoute: PlansRoute,
   ServicosRoute: ServicosRoute,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

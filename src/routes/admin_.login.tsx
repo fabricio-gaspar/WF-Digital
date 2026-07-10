@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Loader2, LogIn, ArrowLeft } from "lucide-react";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/admin/login")({
+export const Route = createFileRoute("/admin_/login")({
   component: AdminLoginPage,
   head: () => ({ meta: [{ title: "Acesso ao Painel — Admin" }, { name: "robots", content: "noindex" }] }),
 });
