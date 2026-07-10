@@ -125,6 +125,9 @@ function AboutPage() {
         </div>
       </section>
 
+      <Counters />
+
+
     </SiteShell>
   );
 }
